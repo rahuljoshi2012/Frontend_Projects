@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "Container">
+        <h1>
+            Genrate a <br>
+            <span> Random Password </span>
+            
+        </h1>
+        <div class = "Display">
+            <input type="text" id = "PassBox" placeholder ="Password">
+            <img  src="images/copy.png" onclick = "copypass()" alt="ImageGEnerate">
+        </div>
+        <button onclick="randompass()"> <img src="images/generate.png">
+            Generate Password
+        </button>
+    </div>
+    <script>
+            const password = document.getElementById("password");
+
+            // character needed in password 
+
+            const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const lowercase = "abcedfghijklmnopqrstuvwxyz";
+            const Number_inPass = "0123456789";
+            const Symbols = "!@#$%^&*()>:??><:";
+
+            function randompass(){
+                let password = "";
+                for(i = 0 ; i<= 4 ; i++){
+                    password = password + uppercase[Math.floor(Math.random() * uppercase.length)];
+                    password = password + lowercase[Math.floor(Math.random() * lowercase.length)];
+                    password = password + Number_inPass[Math.floor(Math.random() * Number_inPass.length)];
+                    password = password + Symbols[Math.floor(Math.random() * Symbols.length)];
+                }
+
+                PassBox.value = password; // --> PassBox id of input box
+                
+            }
+
+            function copypass(){
+                PassBox.select();
+                document.execCommand("copy");   // execCommand --> use for user interaction like copy cut etc
+            }
+    </script>
+</body>
+</html>
