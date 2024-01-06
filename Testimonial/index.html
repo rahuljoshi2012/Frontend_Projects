@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main">
+        <div onclick="left_click()" class="button-">
+
+            <img class = "btn_img" src="images/back.png" alt="">
+
+        </div>
+
+        <div class="testmonial">
+
+            <div class="test_img">
+
+                <img class = "ImagesTest" src="images/image-1.png" alt="">
+            
+                <img class = "ImagesTest" src="images/image-2.png" alt="">
+            
+                <img class = "ImagesTest" src="images/image-3.png" alt="">
+            
+                <img class = "ImagesTest" src="images/image-4.png" alt="">
+            
+                <img class = "ImagesTest" src="images/image-5.png" alt="">
+
+                <img class = "ImagesTest" src="images/image-6.png" alt="">
+
+            </div>
+                
+
+        </div>
+
+        <div onclick="right_click()" class="button-">
+
+            <img class = "btn_img" src="images/next.png" alt="">
+
+        </div>
+    </div>
+    
+    <script>
+        let clicked = 1;
+
+        function right_click(){
+            clicked+=290;
+            // console.log(clicked)
+            const slider = document.querySelector(".test_img");
+            if(clicked>600){
+                clicked = 0;
+            }
+            slider.style.right =`${clicked}px`
+            
+        }
+
+
+        function left_click(){
+            clicked-=290;
+            // console.log(clicked)
+            const slider = document.querySelector(".test_img");
+         if(clicked<0){
+            clicked = 0
+         }
+            
+            slider.style.right =`${clicked}px`
+            
+        }
+    </script>
+</body>
+</html>
