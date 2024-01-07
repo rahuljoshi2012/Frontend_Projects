@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="body_div">
+
+    <div class="main">
+
+
+
+
+        <div class="header">
+
+            <img class ="Header_img" src="back.png" alt="">
+
+            <img class ="Header_img" src="list.png" alt="">
+
+        </div>
+
+
+
+
+
+        <div class="icon">
+
+            <img src="58997062.cms.webp" alt="">
+
+            <h1>Volume - 1</h1>
+            <p>Chut Special By Honey Singh</p>
+
+        </div>
+
+
+
+
+
+
+        <div class="progress">
+
+            <audio id = "song"  src="Choot Vol 1 - Yo Yo Honey Singh Badshah (PagalWorld.com) - 320Kbps.mp3"></audio>
+
+            <input id = "progress_bar" type="range" value ="0">
+
+        </div>
+
+    
+
+
+
+        <div class="footer">
+
+            <img class ="footerimg" src="back.png" alt="">
+
+            <img class ="footerimg2" onclick="clickk()" src="play-button.png" alt="">
+
+            <img class ="footerimg" src="next.png" alt="">
+
+        </div>
+
+
+
+
+
+    </div>
+
+</div>
+
+<script>
+
+    const play = document.querySelector(".footerimg2");
+    const audio = document.getElementById("song");
+    const bar = document.getElementById("progress_bar");
+
+    audio.onloadedmetadata = function(){
+        bar.max = audio.duration;
+        bar.value = audio.currentTime;
+    }
+
+function clickk() {
+    if (play.src.endsWith("play-button.png")) {
+        song.play();
+        play.src = "pause.png";
+    } else if (play.src.endsWith("pause.png")) {
+        song.pause();
+        play.src = "play-button.png";
+    }
+}
+
+if(audio.play()){
+    setInterval(()=>{
+        bar.value = audio.currentTime;
+    } , 500);
+}
+
+bar.onchange = function(){
+    audio.play();
+    audio.currentTime = bar.value;
+}
+
+</script>
+
+</body>
+</html>
